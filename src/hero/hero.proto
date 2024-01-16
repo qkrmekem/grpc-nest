@@ -7,6 +7,11 @@ service HeroesService {
     rpc Find(Void) returns (stream Hero) {}
 }
 
+service HelloService {
+  rpc BidiHello(stream HelloRequest) returns (stream HelloResponse){}
+  rpc LotsOfGreetings(stream HelloRequest) returns (HelloResponse){}
+}
+
 message HeroById {
     int32 id = 1;
 }
@@ -17,3 +22,12 @@ message Hero {
 }
 
 message Void {}
+
+message HelloRequest {
+  string greeting = 1;
+}
+
+message HelloResponse {
+  string reply = 1;
+  string meta = 2;
+}

@@ -21,8 +21,8 @@ async function bootstrap() {
       package: 'hero',
       credentials: ServerCredentials.createInsecure(),
       protoPath: join(__dirname, './hero/hero.proto'),
-    }
-  })
+    },
+  });
 
   await app.startAllMicroservices();
   await app.listen(3000);

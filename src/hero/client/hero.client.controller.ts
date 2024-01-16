@@ -19,4 +19,9 @@ export class HeorClientController{
         return this.heroClientService.find();
     }
 
+    @Get('/stream')
+    stream(): Observable<any> {
+        return this.heroClientService.sendStreamReq();
+    }
+
 }
