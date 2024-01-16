@@ -20,7 +20,7 @@ export class HeroesService {
   findOne(data: HeroById, metadata: Metadata, call: ServerUnaryCall<any, any>) {
     
     const responseMetadata = new Metadata();
-    responseMetadata.add('Set-Cookie', 'yummy_cookie=choco');
+    responseMetadata.add('Custom', 'please');
     call.sendMetadata(responseMetadata);
     
     console.log(`메타데이터 확인 ${JSON.stringify(metadata)}`);
@@ -29,6 +29,7 @@ export class HeroesService {
       { id: 1, name: 'John' },
       { id: 2, name: 'Doe' },
     ];
+    
     return items.find(({ id }) => id === data.id);
     // return header;
   }

@@ -20,8 +20,14 @@ export class HeroClientService implements OnModuleInit {
         this.heroesService = this.client.getService<HeroesService>('HeroesService');
     }
 
-    findOne(): Observable<string> {
-        return this.heroesService.findOne({ id: 1 });
+    findOne(): any {
+        return this.heroesService.findOne({ id: 1 })
+        .subscribe({
+            next: (result) => {
+                console.log('클라이언트',result);
+                
+            }
+        });
     }
 
     find(): Observable<Hero[]> {
